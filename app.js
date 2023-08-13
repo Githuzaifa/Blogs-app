@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const database = require('./database/sql');
 const blogsRouter = require('./routes/blogs');
+const adminRouter = require('./routes/admin');
+const customerRouter = require('./routes/customer');
 
 var app = express();
 
@@ -30,6 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blogs',blogsRouter);
+app.use('/admin',adminRouter);
+
+app.use('/customer',customerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
